@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors Game</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    //JavaScript goes here!
+    let playerScore = 0
+    let computerScore = 0
+    let timesPlayed = 0
+
+
+    function computerPlay() { /* Returns random selection by computer */
+      var computerOptions = ["rock", "paper", "scissors"]
+      var computerChoice =  computerOptions[Math.floor(Math.random()*computerOptions.length)]
+      return computerChoice
+    }
+
+    function playRound(playerSelection, computerSelection) { /* Actual round performed here */
+      let playerSelectionLower = playerSelection.toLowerCase()
+      if (playerSelectionLower == "rock") {
+        if (computerSelection == "rock") {
+          alert("comp is: " + computerSelection)
+          alert ("its a tie")
+        } else if (computerSelection == "paper") {
+            alert("comp is: " + computerSelection)
+            alert ("The computer wins")
+            computerScore++
+        } else if (computerSelection == "scissors") {
+            alert("comp is: " + computerSelection)
+            alert ("The player wins")
+            playerScore++
+        }
+      } else if (playerSelectionLower == "paper") {
+        if (computerSelection == "rock") {
+            alert("comp is: " + computerSelection)
+            alert ("The player wins")
+            playerScore++
+        } else if (computerSelection == "paper") {
+            alert("comp is: " + computerSelection)
+            alert ("its a tie")
+        } else if (computerSelection == "scissors") {
+            alert("comp is: " + computerSelection)
+            alert ("The computer wins")
+            computerScore++
+        }
+      } else if (playerSelectionLower == "scissors") {
+        if (computerSelection == "rock") {
+            alert("comp is: " + computerSelection)
+            alert ("The computer wins")
+            computerScore++
+        } else if (computerSelection == "paper") {
+            alert("comp is: " + computerSelection)
+            alert ("The player wins")
+              playerScore++
+        } else if (computerSelection == "scissors") {
+              alert("comp is: " + computerSelection)
+              alert ("its a tie")
+        }
+      } else {
+        alert ("That is not a valid selection")
+        timesPlayed--
+      }
+    }
+
+    function game() {
+      alert("Welcome to Rock Paper Scissors. \n Here you can play five quick rounds of Rock Paper Scissors to see if you can beat the computer.")
+      
+      
+      while (timesPlayed < 5) {
+        let playerChoice = prompt("Do you choose rock, paper, or scissors?")
+        alert("Playerchoice is: " + playerChoice)
+        playRound(playerChoice, computerPlay())
+        timesPlayed++
+      }
+      alert ("The final score is " + playerScore +" for the player and " + computerScore + " for the computer")
+    }
+
+    game()
+
+
+
+
+    
+  </script>
+</body>
+</html
+
+    
+    
+    
+    
+    
+    
+    
